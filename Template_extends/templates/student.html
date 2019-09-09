@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .nav{
+            line-height: 40px;
+            width: 100%;
+            background-color: blue;
+            color: white;
+            font-size: 20px;
+            text-align: center;
+        }
+        .left,.content{
+            float: left;
+        }
+        .left{
+            width: 10%;
+            min-height: 600px;
+            overflow:auto;
+            background-color: lightgrey;
+        }
+        .manage{
+            text-align: center;
+            padding: 20px 0px;
+            margin: 20px;
+            font-size: 18px;
+
+        }
+        a{
+            text-decoration: none;
+        }
+        .content{
+            width: 70%;
+            min-height: 600px;
+
+        }
+    </style>
+</head>
+<body>
+
+<div class="outer">
+    <div class="nav">标题</div>
+    <div class="left">
+        <div class="student manage"><a href="">学生管理</a></div>
+        <div class="teacher manage"><a href="">老师管理</a></div>
+        <div class="course manage"><a href="">课程管理</a></div>
+        <div class="classes manage"><a href="">班级管理</a></div>
+
+    </div>
+    <div class="content">
+{#        <h1>Hello stundent</h1>#}
+        {% for student in student_list %}
+            <h2>学生{{ student }}</h2>
+        {% endfor %}
+    </div>
+
+</div>
+
+
+
+</body>
+</html>

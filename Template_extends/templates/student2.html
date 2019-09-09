@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% block style %}
+    <style>
+    h2{
+        color: aqua;
+    }
+</style>
+{% endblock  %}
+
+{% block content %}
+    {{  block.super }}
+            {% for student in student_list %}
+            <h2>学生{{ student }}</h2>
+        {% endfor %}
+{% endblock %}
