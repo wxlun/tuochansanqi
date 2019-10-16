@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="/static/plugins/bootstrap/css/bootstrap.css">
+</head>
+<body>
+
+<ur>
+{% for row in data %}
+    <li>{{ row.name }}-{{ row.age }}</li>
+{% endfor %}
+</ur>
+{#{% for i in page_obj.pager_num_range %}#}
+{##}
+{#    <a href="/index2.html?p={{ i }}">{{ i }}</a>#}
+{#{% endfor %}#}
+
+<nav aria-label="...">
+      <ul class="pagination">
+        {{ page_obj.page_str|safe }}
+      </ul>
+    </nav>
+
+
+</body>
+</html>

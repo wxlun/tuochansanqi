@@ -1,0 +1,58 @@
+{% extends "base.html" %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="/static/plugins/bootstrap/css/bootstrap.css">
+</head>
+<body>
+
+{% block content2 %}
+    <div>
+        <table class="table table-bordered">
+            <thead>
+            <tr>
+                <th>ID</th>
+                <th>实例</th>
+                <th>主机</th>
+                <th>端口</th>
+{#                <th>操作</th>#}
+            </tr>
+            </thead>
+            <tbody id="tb">
+            {% for row in mysql_list %}
+                <tr nid="{{ row.id }}">
+                    <td>{{ row.id }}</td>
+
+                    <td>{{ row.instance_name }}</td>
+                    <td>{{ row.host }}</td>
+                    <td>{{ row.port }}</td>
+{#                    <td>#}
+{#                        <a class="glyphicon glyphicon-remove icon del-row"></a>#}
+{#                        <a class="glyphicon glyphicon-pencil edit-row"></a>#}
+{#                    </td>#}
+                </tr>
+            {% endfor %}
+
+
+            </tbody>
+        </table>
+    </div>
+{% endblock %}
+
+
+
+{#分页#}
+    <nav aria-label="Page navigation">
+      <ul class="pagination">
+{#                传入page_info.pager#}
+          {{ page_info.pager|safe }}
+      </ul>
+    </nav>
+
+
+
+
+</body>
+</html>

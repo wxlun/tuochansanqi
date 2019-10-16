@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="/static/plugins/bootstrap/css/bootstrap.css">
+    <style>
+        .icon {
+            margin: 0 3px;
+        }
+    </style>
+</head>
+<body>
+
+
+<div class="container">
+    <div>
+        <div>
+            <form class="form-inline" action="/dbinfoselect/" method="post">
+                <div class="form-group">
+                    <label for="exampleInputName2">IP</label>
+                    <input type="text" class="form-control icon" id="exampleInputName2" placeholder="ip" name="ip">
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputEmail2" >PORT</label>
+                    <input type="text" class="form-control" id="exampleInputEmail2" placeholder="port" name="port">
+                </div>
+                <input class="btn btn-default" type="submit" value="查询"/>
+            </form>
+        </div>
+
+
+        <br>
+
+        <div>
+            <table class="table table-bordered">
+                <thead>
+                <tr>
+                    <th>host</th>
+                    <th>port</th>
+                    <th>instance</th>
+                    <th>dbcount</th>
+                    <th>tablecount</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    {% for row in infolistselect %}
+                        <td>{{ row.host }}</td>
+                        <td>{{ row.port }}</td>
+                        <td>{{ row.instance_name }}</td>
+                        <td>{{ row.dbcount }}</td>
+                        <td>{{ row.tablecount }}</td>
+                        </tr>
+                    {% endfor %}
+
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+    {##}
+    {#<div>#}
+    {#<table border="1">#}
+    {#        <tr>#}
+    {#        <th>host</th>#}
+    {#        <th>port</th>#}
+    {#        <th>instance</th>#}
+    {#        <th>dbcount</th>#}
+    {#        <th>tablecount</th>#}
+    {##}
+    {#        </tr>#}
+    {#        {% for book in infolistselect %}#}
+    {#            <tr>#}
+    {#            <td>{{ book.host }}</td>#}
+    {#            <td>{{ book.port }}</td>#}
+    {#            <td>{{ book.instance_name }}</td>#}
+    {#            <td>{{ book.dbcount }}</td>#}
+    {#            <td>{{ book.tablecount }}</td>#}
+    {##}
+    {#            </tr>#}
+    {#        {% endfor %}</table>#}
+    {#</div>#}
+    <script src="/static/js/jquery-3.1.0.js"></script>
+    <script src="/static/plugins/bootstrap/js/bootstrap.js"></script>
+</div>
+</body>
+</html>

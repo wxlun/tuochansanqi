@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    {% block css %}
+        <link rel="stylesheet" href="/static/plugins/bootstrap/css/bootstrap.css">
+        <style>
+            body, html {
+                margin: 0px;
+                height: 100%;
+            }
+
+            .left1 {
+                height: 100%;
+            }
+        </style>
+
+        <script src="/static/js/jquery-3.1.0.js"></script>
+        <script src="/static/plugins/bootstrap/js/bootstrap.js"></script>
+    {% endblock %}
+</head>
+
+<body style="overflow-s:croll;overflow-x:hidden">
+{% block content1 %}
+
+    <div class="row clearfix" style="height: 100%">
+    <div class="col-md-2 column left1">
+        <div style="background-color: rgba(83,178,204,0.09);height: 100%">
+            <ul class="nav nav-pills nav-stacked">
+                <li role="presentation" class="active"><a href="#">数据库</a></li>
+                <li role="presentation"><a href="#">仪表盘</a></li>
+
+            </ul>
+            <div>
+                <a href="#systemSetting1" class="nav-header collapsed" data-toggle="collapse">
+                    <i class="glyphicon glyphicon-chevron-down"></i>
+                    MySQL监控
+                    <span class="pull-right glyphicon glyphicon-chevron-toggle" style="display: block"></span>
+                </a>
+                <ul id="systemSetting1" class="nav nav-list collapse secondmenu">
+                    <li><a href="#"><i class="glyphicon glyphicon-th-list"></i>健康监控</a></li>
+                    <li><a href="#"><i class="glyphicon glyphicon-th-list"></i>资源监控</a></li>
+                    <li><a href="#"><i class="glyphicon glyphicon-th-list"></i>innodb监控</a></li>
+                    <li><a href="#"><i class="glyphicon glyphicon-th-list"></i>复制监控</a></li>
+                    <li><a href="#"><i class="glyphicon glyphicon-th-list"></i>慢查询分析</a></li>
+                </ul>
+
+            </div>
+            <div>
+                <a href="#systemSetting2" class="nav-header collapsed" data-toggle="collapse">
+                    <i class="glyphicon glyphicon-chevron-down"></i>
+                    配置中心
+                    <span class="pull-right glyphicon glyphicon-chevron-toggle" style="display: block"></span>
+                </a>
+                <ul id="systemSetting2" class="nav nav-list collapse secondmenu">
+                    <li><a href="#"><i class="glyphicon glyphicon-th-list"></i>全局设置</a></li>
+                    <li><a href="/get_mysqlinfo"><i class="glyphicon glyphicon-th-list"></i>MySQL</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+<div class="container">
+    <div class="col-md-10 column">
+        {% block content2 %}
+        {% endblock %}
+    </div>
+</div>
+</div>
+
+</body>
+</html>

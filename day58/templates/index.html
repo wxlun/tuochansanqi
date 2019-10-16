@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<ur>
+{% for row in user_list %}
+    <li>{{ row.name }}-{{ row.age }}</li>
+{% endfor %}
+</ur>
+
+<p>
+    <a href="/index.html?p={{ up_pager }}">上一页</a>
+    <a href="/index.html?p={{ down_pager }}">下一页</a>
+
+</p>
+
+</body>
+</html>

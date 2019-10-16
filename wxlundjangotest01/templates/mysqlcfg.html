@@ -1,0 +1,335 @@
+{% extends "base.html" %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+{% block content2 %}
+    <div style="padding: 20px 0">
+        <a class="btn btn-primary" id="addBtn">添加</a>
+    </div>
+    <div>
+        <table class="table table-bordered">
+            <thead>
+            <tr>
+                <th>ID</th>
+                <th>实例</th>
+                <th>主机</th>
+                <th>端口</th>
+                <th>用户名</th>
+                <th>密码</th>
+                <th>操作</th>
+            </tr>
+            </thead>
+            <tbody id="tb">
+            {% for row in mysql_list %}
+                <tr id="{{ row.id }}">
+                    <td na="id">{{ row.id }}</td>
+                    <td na="instance_name">{{ row.instance_name }}</td>
+                    <td na="host">{{ row.host }}</td>
+                    <td na="port">{{ row.port }}</td>
+                    <td na="user">{{ row.user }}</td>
+                    <td na="passwd">{{ row.passwd }}</td>
+
+                    <td>
+                        <a class="glyphicon glyphicon-remove icon del-row"></a>
+                        <a class="glyphicon glyphicon-pencil edit-row"></a>
+                    </td>
+                </tr>
+            {% endfor %}
+
+
+            </tbody>
+        </table>
+    </div>
+
+
+    <!-- Modal -->
+    <div class="modal fade" id="addModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                            aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="myModalLabel">MySQL新增</h4>
+                </div>
+                <div class="modal-body">
+
+
+                    <form class="form-horizontal">
+                        <div class="form-group">
+                            <label for="inputEmail3" class="col-sm-2 control-label">实例</label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" name="instance_name" placeholder="实例">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="inputPassword3" class="col-sm-2 control-label">主机</label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" name="host" placeholder="主机">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="inputPassword3" class="col-sm-2 control-label">端口</label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" name="port" placeholder="端口">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="inputPassword3" class="col-sm-2 control-label">用户名</label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" name="user" placeholder="用户名">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="inputPassword3" class="col-sm-2 control-label">密码</label>
+                            <div class="col-sm-10">
+                                <input type="password" class="form-control" name="passwd" placeholder="密码">
+                            </div>
+                        </div>
+                    </form>
+
+
+                </div>
+                <div class="modal-footer">
+                    <span id="errorMsg" style="color: red"></span>
+                    <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                    <button type="button" class="btn btn-primary" id="btnSave">保存</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal -->
+    <div class="modal fade" id="delModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="alert alert-danger" role="alert">
+                <h3>是否删除MySQL信息</h3>
+                <div>
+                    <input type="text" id="delNid" style="display: none"/>
+                </div>
+                <div>
+                    <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                    <button id="delConfirm" type="button" class="btn btn-danger">确认</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal -->
+    <div class="modal fade" id="editModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                            aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="myModalLabel">编辑MySQL</h4>
+                </div>
+                <div class="modal-body">
+
+                    <form class="form-horizontal">
+                        <input type="text" name="id" style="display: none"/>
+
+                        <div class="form-group">
+                            <label for="inputEmail3" class="col-sm-2 control-label">实例</label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" name="instance_name" placeholder="实例">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="inputPassword3" class="col-sm-2 control-label">主机</label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" name="host" placeholder="主机">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="inputPassword3" class="col-sm-2 control-label">端口</label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" name="port" placeholder="端口">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="inputPassword3" class="col-sm-2 control-label">用户名</label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" name="user" placeholder="用户名">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="inputPassword3" class="col-sm-2 control-label">密码</label>
+                            <div class="col-sm-10">
+                                <input type="password" class="form-control" name="passwd" placeholder="密码">
+                            </div>
+                        </div>
+                    </form>
+
+                </div>
+                <div class="modal-footer">
+                    <span id="errorMsg" style="color: red"></span>
+                    <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                    <button type="button" class="btn btn-primary" id="btnEditSave">保存</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+    <script>
+        $(function () {
+            bindEvent();
+            bindSave();
+            bindDel();
+            bindDelConfirm();
+            bindEdit();
+            bindEditConfirm();
+        });
+
+        function bindEvent() {
+            $('#addBtn').click(function () {
+                $('#addModal').modal('show');
+            })
+        }
+        ;
+
+        function bindSave() {
+            $('#btnSave').click(function () {
+                var postData = {};
+                $('#addModal').find('input,select').each(function () {
+                    {#                console.log($(this)[0]);#}
+                    var v = $(this).val();
+                    var n = $(this).attr('name');
+                    if (n == 'gender') {
+                        if ($(this).prop('checked')) {
+                            postData[n] = v;
+                        }
+                    } else {
+                        postData[n] = v;
+                    }
+                });
+                console.log(postData);
+                $.ajax({
+                    url: '/add_mysql/',
+                    type: 'POST',
+                    data: postData,
+                    success: function (arg) {
+                        //JSON.parse 将字符串转换成字典
+                        var dict = JSON.parse(arg);
+                        if (dict.status) {
+                            window.location.reload();
+                        }
+                        else {
+                            $('#errorMsg').text(dict.message);
+                        }
+                    }
+                })
+            });
+        }
+        function bindDel() {
+            $('#tb').on('click', '.del-row', function () {
+                $('#delModal').modal('show');
+                var rowId = $(this).parent().parent().attr('nid');
+                $('#delNid').val(rowId);
+                console.log(rowId)
+            })
+        }
+        ;
+
+
+        function bindDelConfirm() {
+            $('#delConfirm').click(function () {
+                var rowId = $('#delNid').val();
+                console.log(rowId);
+                $.ajax({
+                    url: '/del_mysql/',
+                    type: 'GET',
+                    data: {
+                        'nid': rowId
+                    },
+                    success: function (arg) {
+                        var dict = JSON.parse(arg);
+                        if (dict.status) {
+                            $('tr[nid="' + rowId + '"]').remove();
+
+                        }
+                        $('#delModal').modal('hide');
+
+                    }
+                })
+            })
+        }
+        ;
+
+        function bindEditConfirm() {
+            $('#btnEditSave').click(function () {
+                var postData = {};
+                $('#editModal').find('input,select').each(function () {
+                    console.log($(this)[0]);
+                    var v = $(this).val();
+                    var n = $(this).attr('name');
+                    if (n == 'gender') {
+                        if ($(this).prop('checked')) {
+                            postData[n] = v;
+                        }
+                    } else {
+                        postData[n] = v;
+                    }
+                });
+                console.log(postData);
+                $.ajax({
+                    url: '/edit_mysql/',
+                    type: 'POST',
+                    data: postData,
+                    dataType: 'JSON',
+                    success: function (arg) {
+                        if (arg.code = 1000) {
+                            window.location.reload();
+                        } else {
+                            alert(arg.message)
+                        }
+                    }
+                })
+            });
+
+        }
+        function bindEdit() {
+            $('#tb').on('click', '.edit-row', function () {
+                $('#editModal').modal('show');
+                $(this).parent().prevAll().each(function () {
+                    var v = $(this).text();
+                    var n = $(this).attr('na');
+                    $("#editModal input[name='" + n + "']").val(v);
+                })
+            })
+        }
+
+    </script>
+
+{#分页#}
+    <nav aria-label="Page navigation">
+      <ul class="pagination">
+{#                传入page_info.pager#}
+          {{ page_info.pager|safe }}
+      </ul>
+    </nav>
+
+{% endblock %}
+
+
+
+
+
+
+</body>
+</html>
