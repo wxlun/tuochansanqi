@@ -1,0 +1,45 @@
+{% extends "master/base.html" %}
+
+    {% block right-top1 %}
+    <div class="db-count">
+        <p class="db-count-p">
+            <span class="stat"> {{ mysql_count }} </span>MySQL
+            <span class="stat"> {{ mongodb_count }} </span>MongoDB
+            <span class="stat"> {{ redis_count }} </span>Redis
+        </p>
+        {% endblock %}
+
+
+    {% block content %}
+      <div>
+        <table class="table table-bordered modal-content">
+            <thead>
+            <tr>
+                <th>ip</th>
+                <th>端口</th>
+                <th>集群</th>
+                <th>角色</th>
+                <th>库</th>
+                <th>机房</th>
+            </tr>
+            </thead>
+            <tbody id="tb">
+            {% for row in mysql_list %}
+                <tr nid="{{ row.id }}">
+                    <td>{{ row.ip }}</td>
+                    <td>{{ row.port }}</td>
+                    <td>{{ row.dbcls__clsname}}</td>
+                    <td>{{ row.role }}</td>
+                    <td>{{ row.db }}</td>
+                    <td>{{ row.dbidc__name }}</td>
+
+{#                    <td>#}
+{#                        <a class="glyphicon glyphicon-remove icon del-row"></a>#}
+{#                        <a class="glyphicon glyphicon-pencil edit-row"></a>#}
+{#                    </td>#}
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+    {% endblock %}

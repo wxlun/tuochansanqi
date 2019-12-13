@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <style>
+    .container a{
+      display: inline-block;
+      padding: 3px 5px;
+      margin: 5px;
+      border: 1px solid #dddddd ;
+    }
+    .active{
+
+
+    }
+  </style>
+</head>
+<body>
+<h1>搜索条件</h1>
+<div class="container">
+  {% if article_arg.article_type_id == 0 %}
+    <a class="active" href="/cmdb/article-0-{{ article_arg.category_id }}.html" rel="external nofollow" rel="external nofollow" rel="external nofollow" rel="external nofollow" >全部</a>
+  {% else %}
+     <a href="/cmdb/article-0-{{ article_arg.category_id }}.html" rel="external nofollow" rel="external nofollow" rel="external nofollow" rel="external nofollow" >全部</a>
+  {% endif %}
+  {% for row in article_type %}
+    {% if row.id == article_arg.article_type_id %}
+      <a class="active" href="/cmdb/article-{{ row.id }}-{{ article_arg.category_id }}.html" rel="external nofollow" rel="external nofollow" rel="external nofollow" rel="external nofollow" rel="external nofollow" rel="external nofollow" >{{ row.caption }}</a>
+    {% else %}
+      <a href="/cmdb/article-{{ row.id }}-{{ article_arg.category_id }}.html" rel="external nofollow" rel="external nofollow" rel="external nofollow" rel="external nofollow" rel="external nofollow" rel="external nofollow" >{{ row.caption }}</a>
+    {% endif %}
+  {% endfor %}
+</div>
+<div class="container">
+   {% if article_arg.category_id == 0 %}
+    <a class="active" href="/cmdb/article-{{ article_arg.article_type_id }}-0.html" rel="external nofollow" rel="external nofollow" >全部</a>
+  {% else %}
+     <a href="/cmdb/article-{{ article_arg.article_type_id }}-0.html" rel="external nofollow" rel="external nofollow" >全部</a>
+  {% endif %}
+  {% for row in article_category %}
+    {% if row.id == article_arg.category_id %}
+    <a class="active" href="/cmdb/article-{{ article_arg.article_type_id }}-{{ row.id }}.html" rel="external nofollow" rel="external nofollow" rel="external nofollow" rel="external nofollow" >{{ row.caption }}</a>
+    {% else %}
+    <a href="/cmdb/article-{{ article_arg.article_type_id }}-{{ row.id }}.html" rel="external nofollow" rel="external nofollow" rel="external nofollow" rel="external nofollow" >{{ row.caption }}</a>
+    {% endif %}
+  {% endfor %}
+</div>
+<h1>查询结果</h1>
+<div>
+  {% for row in aritcle %}
+    <div>{{ row.id }}-{{ row.title }}</div>
+  {% endfor %}
+</div>
+</body>
+</html>

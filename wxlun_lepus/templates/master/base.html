@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="/static/plugins/bootstrap/css/bootstrap.css">
+{#    <link rel="stylesheet" href="/static/plugins/H-ui.admin/static/h-ui/css/H-ui.css">#}
+    <style>
+        .top{
+            background-color:#4d5b76 ;
+            width: 100%;
+            height: 40px;
+            line-height: 40px;
+        }
+        .left-top{
+            float: left;
+            font-size: 20px;
+            margin: 0 auto;
+        }
+        .right-top{
+            position: absolute;
+            right: 100px;
+            display: inline-block;
+            margin: 0 auto;
+
+        }
+
+        .top-header1{
+            color: #ffffff;
+
+        }
+        .top-header{
+            color: #ffffff;
+            font-family: 微软雅黑;
+            font-size: 14px;
+            margin: 0 auto;
+            margin-left: 20px;
+        }
+
+        .page-body .menu{
+            width: 200px;
+            background-color: #efeff0;
+            position: absolute;
+            left: 0;
+            height: 100%;
+            top: 40px;
+            display: block;
+            border-right:3px solid #999999;
+            overflow: auto;
+
+        }
+
+        .page-body .right-top1{
+            left: 200px;
+            width: 100%;
+            top: 40px;
+            height: 60px;
+            background-color: #efeff0;
+            border-bottom:1px solid #999999;
+
+        }
+
+        .page-body .right-top2{
+            left: 200px;
+            width: 100%;
+            top: 60px;
+            height: 40px;
+            background-color: #efeff0;
+            border-bottom:1px solid #999999;
+
+        }
+
+        .nav-header{
+            display: block;
+            margin-left: 10px;
+            margin-top: 10px;
+        }
+
+        ul{
+            font-size: 13px;
+            display: block;
+        }
+        li{
+            display: block;
+        }
+
+        .page-body{
+            overflow-y:scroll;
+            margin:0;
+            padding:0;
+        }
+
+    </style>
+
+</head>
+<body class="page-body">
+<div class="top">
+            <div class="left-top">
+                <img src="/static/img/logo.png" />
+                <a class="top-header1">天兔</a>
+            </div>
+            <div class="right-top">
+                <a class="top-header" href="#">仪表盘</a>
+                <a class="top-header" href="#">监控项</a>
+                <a class="top-header" href="#">MySQL</a>
+                <a class="top-header" href="#">Oracle</a>
+                <a class="top-header" href="#">MongoDB</a>
+                <a class="top-header" href="#">SQLServer</a>
+                <a class="top-header" href="#">Redis</a>
+                <a class="top-header" href="#">OS</a>
+                <a class="top-header" href="#">告警</a>
+                <a class="top-header" href="#">配置</a>
+                <a class="top-header" href="#">语言</a>
+            </div>
+</div>
+
+
+
+<div class="menu">
+    {% for menu1 in menu_list %}
+         {{ menu1|safe }}
+    {% endfor %}
+{#    {{ menu_list|safe }}#}
+
+</div>
+
+<div class="right-top1">
+</div>
+<div class="right-top2">
+</div>
+
+
+<script src="/static/js/jquery-3.1.0.js"></script>
+<script src="/static/plugins/bootstrap/js/bootstrap.js"></script>
+{#<script src="/static/plugins/H-ui.admin/static/h-ui/js/H-ui.min.js"></script>#}
+<script>
+    $(document).ready(function () {
+        $('a').click(function () {
+            $(this).next('ul').toggle()
+            $('this').removeClass('collapsed')
+            $(this).next('ul').removeClass('collapsed')
+            $(this).next('ul').addClass('in collapse')
+            $(this).next('ul').css({"height":"auto"})
+        });
+    });
+</script>
+</body>
+</html>

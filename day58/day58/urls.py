@@ -17,11 +17,12 @@ from django.contrib import admin
 from django.urls import path
 from django.conf.urls import url
 from app01 import views
-
+from app02 import views as v2
 urlpatterns = [
     path('admin/', admin.site.urls),
     url(r'^index.html$', views.index),
     url(r'^index1.html$', views.index1),
     url(r'^index2.html$', views.index2),
+    url(r'^f1.html$', v2.f1),
 
 ]
