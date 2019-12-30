@@ -35,7 +35,11 @@
 {#              {{ request.user.userprofile.role.all }}#}
               {% for role in request.user.userprofile.role.select_related %}
                   {% for menu in role.menus.select_related %}
-                      <li><a href="{% if menu.url_type == 0 %}{{ menu.url_name }} {% else %} {% url menu.url_name %} {% endif %}">{{ menu.name }}</a></li>
+                      {% if request.path == menu.url_name %}   <!-- request.path 当前url -->
+                          <li class="active"><a href="{% if menu.url_type == 0 %}{{ menu.url_name }} {% else %} {% url menu.url_name %} {% endif %}">{{ menu.name }}</a></li>
+                      {% else %}
+                          <li ><a href="{% if menu.url_type == 0 %}{{ menu.url_name }} {% else %} {% url menu.url_name %} {% endif %}">{{ menu.name }}</a></li>
+                      {% endif %}
                       {% endfor %}
               {% endfor %}
 

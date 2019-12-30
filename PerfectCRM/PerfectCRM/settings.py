@@ -132,3 +132,8 @@ STATICFILES_DIRS = (
 )
 
 LOGIN_URL = '/login/'
+
+CRM_FILE_UPLOAD_DIR = os.path.join(BASE_DIR,'crm/upload_file/enrollment_data')
+
+
+AUTH_USER_MODEL = 'crm.UserProfile'

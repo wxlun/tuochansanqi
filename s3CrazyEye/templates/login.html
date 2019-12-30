@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style>
+        .login-body{
+            width: 400px;
+            margin: 80px auto;
+            background-color: white;
+{#            border: 1px solid #cccccc;#}
+        }
+        .login-body-input{
+            width: 300px;
+            margin: 0 auto;
+            padding:10px;
+
+        }
+
+        .bd{
+            background-color: #777777;
+        }
+        .login-top{
+            width: 100%;
+            height: 40px;
+            background-color: #5bc0de;
+        }
+
+
+    </style>
+    <link rel="stylesheet" href="/static/plugins/bootstrap/css/bootstrap.min.css"></link>
+</head>
+<body class="bd">
+<form href="/login.html/" method="POST"> {% csrf_token %}
+    <div class="login-body">
+        <div class="login-top">
+
+        </div>
+           <div class="login-body-input">
+
+          <div class="form-group">
+            <label>用户名</label>
+            <input name="username" type="text" class="form-control" id="exampleInputEmail1" placeholder="用户名">
+          </div>
+          <div class="form-group">
+            <label>密码</label>
+            <input name = 'password' type="password" class="form-control" id="exampleInputPassword1" placeholder="密码">
+          </div>
+{#          <div class="checkbox">#}
+{#            <label>#}
+{#              <input type="checkbox"> 一个月免登录#}
+{#            </label>#}
+{#          </div>#}
+          <button type="submit" class="btn btn-default" style="background-color: #5bc0de">登录</button>
+               <span style="color: red;"> {{ error_msg }} </span>
+        </div>
+        </div>
+</form>
+    <script src="/static/js/jquery-3.1.0.js"></script>
+    <script src="/static/plugins/bootstrap/js/bootstrap.js"></script>
+</body>
+</html>

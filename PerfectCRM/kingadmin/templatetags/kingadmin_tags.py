@@ -136,3 +136,57 @@ def render_paginator(querysets,admin_class,sorted_column):
 @register.simple_tag
 def get_current_sorted_column_index(sorted_column):
     return list(sorted_column.values())[0] if sorted_column else ''
+
+@register.simple_tag
+def get_obj_field_val(form_obj,field):
+    """返回model obj具体字段的值"""
+    return getattr(form_obj.instance,field)
+
+@register.simple_tag
+def get_available_m2m_data(field_name,form_obj,admin_class):
+    """返回的是m2m字段关联表的所有数据"""
+    field_obj = admin_class.model._meta.get_field(field_name)
+    obj_list = set(field_obj.related_model.objects.all())
+    if form_obj.instance.id:
+        selected_data = set(getattr(form_obj.instance,field_name).all())
+        return obj_list-selected_data
+    else:
+        return obj_list
+
+
+@register.simple_tag
+def get_selected_m2m_data(field_name,form_obj,admin_class):
+    """返回已选的m2m数据"""
+    if form_obj.instance.id:
+        selected_data = getattr(form_obj.instance,field_name).all()
+        return selected_data
+    else:
+        return []
+
+@register.simple_tag
+def display_all_related_objs(obj):
+    """显示要被删除对象的所有关联对象"""
+    ele = "<ul><b style='color:red'>%s</b>" %obj
+    # ele += "<li><a href='/kingadmin/%s/%s/%s/change/'>%s</a></li>" %(obj._meta.app_label,obj._meta.model_name,obj.id,obj)
+
+    for reversed_fk_obj in obj._meta.related_objects:
+
+        related_table_name = reversed_fk_obj.name
+        related_lookup_key = "%s_set" % related_table_name
+        related_objs = getattr(obj,related_lookup_key).all() #反向查所有关联的数据
+        ele += "<li>%s<ul>" % related_table_name
+        if reversed_fk_obj.get_internal_type() == "ManyToManyField": #不需要深入查找
+            for i in related_objs:
+                ele += "<li><a href='/kingadmin/%s/%s/%s/change/'> %s</a> 记录里与[%s]相关的数据将被删除</li>" % (i._meta.app_label,i._meta.model_name,i.id,i,obj)
+        else:
+            for i in related_objs:
+                # ele += "<li>%s</li>" %i
+                ele += "<li><a href='/kingadmin/%s/%s/%s/change/'>%s</a></li>" % (i._meta.app_label, i._meta.model_name, i.id, i)
+                ele += display_all_related_objs(i)
+            ele += "</ul></li>"
+    ele += "</ul>"
+    return ele
+
+@register.simple_tag
+def get_model_verbose_name(admin_class):
+    return admin_class.model._meta.verbose_name
