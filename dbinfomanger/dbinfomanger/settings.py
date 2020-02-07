@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'dbinfo',
+    # 'django_crontab',
 ]
 
 MIDDLEWARE = [
@@ -135,3 +136,10 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = (
     os.path.join(BASE_DIR,'static'),
 )
+
+
+#
+# CRONJOBS = [
+#     # 每1分钟生成一次首页静态文件
+#     ('*/1 * * * *', 'dbinfo.test1.test', '>> /static/crontab.log')
+# ]

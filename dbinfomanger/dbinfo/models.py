@@ -73,4 +73,10 @@ class dbmongodb(models.Model):
         verbose_name = 'MongoDB表'
 
 
-
+class usercollection(models.Model):
+    ip = models.CharField(max_length=32,null=False)
+    port = models.IntegerField(max_length=10,null=False,verbose_name='端口',db_index=True)
+    username = models.CharField(max_length=32,blank=True,null=True)
+    hostname = models.CharField(max_length=32,blank=True,null=True)
+    class Meta:
+        unique_together = ["ip","port",'username','hostname']

@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>WXLUN</title>
+    {% block head %}
+    {% endblock %}
+    <link rel="stylesheet" href="/static/plugins/bootstrap/css/bootstrap.css">
+    <style>
+        .bd .left-menu{
+            width: 200px;
+            background-color: #efeff0;
+            position: absolute;
+            left: 0;
+            height: 100%;
+            display: block;
+            border-right:3px solid #999999;
+            overflow: auto;
+
+        }
+
+        .bd .left-menu .left-a{
+            display: inline-block;
+            font-size: 16px;
+            margin-top: 40px;
+            width: 180px;
+            margin-left: 5px;
+        }
+
+        .bd .left-menu .left-a .left-a-i {
+            text-align: right;
+            display: block;
+            float: right;
+        }
+
+        .bd .right-top1{
+            margin-left: 200px;
+            height: 40px;
+            background-color: #efeff0;
+            border-bottom:1px solid #999999;
+            text-align: right;
+            line-height: 40px;
+
+        }
+
+        .bd .right-top2 {
+            margin-left: 200px;
+            top: 60px;
+            height: 40px;
+            background-color: #efeff0;
+            border-bottom: 1px solid #999999;
+            text-align: right;
+            line-height: 40px;
+        }
+
+        .bd .right-top2 .top2-btn{
+            margin:0 auto
+
+        }
+
+        .bd .right-content {
+            margin-left: 200px;
+        }
+        .bd .right-content-inner {
+            display: block;
+            margin: 0px 5px;
+        }
+
+        .right-top1 .db-count{
+            white-space: nowrap;
+            margin: 0 auto;
+            font-size: 15px;
+            margin-right: 10px;
+        }
+        .right-top1 .db-count .db-count-p {
+
+        }
+
+        .right-top1 .db-count .db-count-p .stat{
+            border: 1px solid #777777;
+            margin: auto 10px;
+        }
+        .right-top1 img{
+            height: 38px;
+            width: 38px;
+            border-radius: 50%;
+        }
+
+
+    </style>
+</head>
+<body class="bd">
+   {% block body %}
+    {% endblock %}
+
+<div class="left-menu">
+    <h2>WXLUN</h2>
+    <a class="left-a glyphicon glyphicon-th-large"> MySQL信息 </a>
+    <ul class="ul1">
+        <li id="li1" class="li1-class">MySQL集群</li>
+        <li id="li2" class="li2-class">MySQL信息</li>
+    </ul>
+    <a class="left-a glyphicon glyphicon-th-large"> 用户权限 </a>
+    <ul class="ul1">
+        <li id="li3" class="li3-class">用户管理</li>
+        <li id="li4" class="li4-class">授权管理</li>
+    </ul>
+{#    <a class="left-a glyphicon glyphicon-th-large" href="#"> MongoDB信息 <i class="left-a-i glyphicon glyphicon-menu-down"></i></a>#}
+{#        <ul class="ul2">#}
+{#        <li>MongoDB信息</li>#}
+{#    </ul>#}
+{#    <a class="left-a glyphicon glyphicon-th-large" href="#"> Redis信息 <i class="left-a-i glyphicon glyphicon-menu-down"></i></a>#}
+{##}
+{#        <ul class="ul3">#}
+{#        <li>Redis信息</li>#}
+{#    </ul>#}
+</div>
+
+<div class="right-top1">
+    <img src="/static/img/login.jpg" alt="">
+    {% block right-top1 %}
+    {% endblock %}
+{#    <div class="db-count">#}
+{#        <p class="db-count-p">#}
+{#            <span class="stat"> {{ mysql_count }} </span>MySQL#}
+{#            <span class="stat"> {{ mongodb_count }} </span>MongoDB#}
+{#            <span class="stat"> {{ redis_count }} </span>Redis#}
+{#        </p>#}
+    </div>
+
+</div>
+
+<div class="right-top2">
+    <button type="button" class="top2-btn btn btn-default navbar-btn">添加</button>
+    <button type="button" class="top2-btn btn btn-default navbar-btn">删除</button>
+    <button type="button" class="top2-btn btn btn-default navbar-btn">编辑</button>
+    <button type="button" class="top2-btn btn btn-default navbar-btn">查询</button>
+</div>
+
+<div class="right-content">
+<div class="right-content-inner">
+    {% block content %}
+    {% endblock %}
+</div>
+</div>
+
+{#<script>#}
+{#    var li1 = document.getElementById('li1');#}
+{#    function li1fun() {#}
+{#        #}
+{#    }#}
+{#    li1.onclick = li1fun;#}
+{#</script>#}
+
+
+<script src="/static/js/jquery-3.1.0.js"></script>
+<script src="/static/plugins/bootstrap/js/bootstrap.js"></script>
+
+<script>
+    $(".li1-class").click(function () {
+        $.ajax({
+            url:"/mysql_cls.html",
+            type:"GET",
+            success:function () {
+                window.location.href = '/mysql_cls.html';
+            }
+        })
+    })
+
+    $(function () {
+        $(".left-a").click(
+            function () {
+                $(this).next().slideToggle();
+                
+            }
+        )
+    })
+
+</script>
+
+<script>
+    $(".li2-class").click(function () {
+        $.ajax({
+            url:"/mysql_info.html",
+            type:"GET",
+            success:function () {
+                window.location.href = '/mysql_info.html';
+            }
+        })
+    });
+
+    $(".li3-class").click(function () {
+        $.ajax({
+            url:"/usermgr.html",
+            type:"GET",
+            success:function () {
+                window.location.href = '/usermgr.html';
+            }
+        })
+    })
+
+        $(".li4-class").click(function () {
+        $.ajax({
+            url:"/userauth.html",
+            type:"GET",
+            success:function () {
+                window.location.href = '/userauth.html';
+            }
+        })
+    })
+</script>
+
+</body>
+</html>

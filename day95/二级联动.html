@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<select id="provinces">
+    <option value="">请选择省份</option>
+</select>
+<select id="citys">
+    <option value="">请选择城市</option>
+</select>
+
+<script>
+    data = {"河南": ["洛阳", "濮阳"], "河北": ["承德", "唐山"], "山东": ["潍坊", "青岛"]}
+    var pro_ele = document.getElementById("provinces")
+    var city_ele = document.getElementById("citys")
+    for (var i in data) {
+        var ele = document.createElement("option");
+        ele.innerHTML = i;
+        pro_ele.appendChild(ele);
+    }
+
+    pro_ele.onchange = function () {
+        var citys = data[this.options[this.selectedIndex].innerHTML]
+        city_ele.length = 1;
+
+        for (var i = 0; i < citys.length; i++) {
+            var ele = document.createElement("option");
+            ele.innerHTML = citys[i];
+            city_ele.appendChild(ele);
+        }
+    }
+
+</script>
+
+</body>
+</html>

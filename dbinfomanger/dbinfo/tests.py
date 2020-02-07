@@ -1,3 +1,9 @@
-from django.test import TestCase
+def abc(self):
+    print('%s talking' %self.name)
+class Person():
+    def __init__(self,name):
+        self.name = name
 
-# Create your tests here.
+p = Person('laowang')
+setattr(p,'talk',abc)
+p.talk(p)

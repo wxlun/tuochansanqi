@@ -1,0 +1,33 @@
+{% extends "master/base.html" %}
+
+
+
+    {% block content %}
+      <div>
+        <table class="table table-striped">
+            <thead>
+            <tr>
+                <th>ip</th>
+                <th>port</th>
+                <th>user</th>
+                <th>host</th>
+
+            </tr>
+            </thead>
+            <tbody id="tb">
+            {% for row in mysql_list %}
+                <tr nid="{{ row.id }}">
+                    <td>{{ row.ip }}</td>
+                    <td>{{ row.port }}</td>
+                    <td>{{ row.username}}</td>
+                    <td>{{ row.hostname }}</td>
+{#                    <td>#}
+{#                        <a class="glyphicon glyphicon-remove icon del-row"></a>#}
+{#                        <a class="glyphicon glyphicon-pencil edit-row"></a>#}
+{#                    </td>#}
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+    {% endblock %}

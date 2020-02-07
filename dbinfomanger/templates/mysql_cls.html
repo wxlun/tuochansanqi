@@ -4,7 +4,7 @@
 
     {% block content %}
       <div>
-        <table class="table table-bordered modal-content">
+        <table class="table table-striped">
             <thead>
             <tr>
                 <th>集群</th>
@@ -13,10 +13,6 @@
                 <th>IDC读VIP</th>
                 <th>IDC外网</th>
                 <th>IDC同步IP</th>
-                <th>阿里云写IP</th>
-                <th>阿里云读IP</th>
-                <th>阿里云外网</th>
-                <th>阿里云同步IP</th>
             </tr>
             </thead>
             <tbody id="tb">
@@ -28,10 +24,6 @@
                     <td>{{ row.idcrvip }}</td>
                     <td>{{ row.idcoip}}</td>
                     <td>{{ row.idctip}}</td>
-                    <td>{{ row.alywvip }}</td>
-                    <td>{{ row.alyrvip }}</td>
-                    <td>{{ row.alyoip }}</td>
-                    <td>{{ row.alytip}}</td>
 
 {#                    <td>#}
 {#                        <a class="glyphicon glyphicon-remove icon del-row"></a>#}

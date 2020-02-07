@@ -1,0 +1,1470 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataSource name="Django default">
+  <database-model serializer="dbm" rdbms="SQLITE" format-version="4.0">
+    <root id="1"/>
+    <schema id="2" parent="1">
+      <Current>1</Current>
+      <Visible>1</Visible>
+    </schema>
+    <table id="3" parent="2" name="auth_group"/>
+    <table id="4" parent="2" name="auth_group_permissions"/>
+    <table id="5" parent="2" name="auth_permission"/>
+    <table id="6" parent="2" name="django_admin_log"/>
+    <table id="7" parent="2" name="django_content_type"/>
+    <table id="8" parent="2" name="django_migrations"/>
+    <table id="9" parent="2" name="django_session"/>
+    <table id="10" parent="2" name="monitor_action"/>
+    <table id="11" parent="2" name="monitor_action_host_groups"/>
+    <table id="12" parent="2" name="monitor_action_hosts"/>
+    <table id="13" parent="2" name="monitor_action_operations"/>
+    <table id="14" parent="2" name="monitor_action_triggers"/>
+    <table id="15" parent="2" name="monitor_actionoperation"/>
+    <table id="16" parent="2" name="monitor_actionoperation_notifiers"/>
+    <table id="17" parent="2" name="monitor_eventlog"/>
+    <table id="18" parent="2" name="monitor_host"/>
+    <table id="19" parent="2" name="monitor_host_host_groups"/>
+    <table id="20" parent="2" name="monitor_host_templates"/>
+    <table id="21" parent="2" name="monitor_hostgroup"/>
+    <table id="22" parent="2" name="monitor_hostgroup_templates"/>
+    <table id="23" parent="2" name="monitor_maintenance"/>
+    <table id="24" parent="2" name="monitor_maintenance_host_groups"/>
+    <table id="25" parent="2" name="monitor_maintenance_hosts"/>
+    <table id="26" parent="2" name="monitor_service"/>
+    <table id="27" parent="2" name="monitor_service_items"/>
+    <table id="28" parent="2" name="monitor_serviceindex"/>
+    <table id="29" parent="2" name="monitor_template"/>
+    <table id="30" parent="2" name="monitor_template_services"/>
+    <table id="31" parent="2" name="monitor_template_triggers"/>
+    <table id="32" parent="2" name="monitor_trigger"/>
+    <table id="33" parent="2" name="monitor_triggerexpression"/>
+    <table id="34" parent="2" name="monitor_userprofile"/>
+    <table id="35" parent="2" name="monitor_userprofile_groups"/>
+    <table id="36" parent="2" name="monitor_userprofile_user_permissions"/>
+    <table id="37" parent="2" name="sqlite_autoindex_auth_group_1"/>
+    <table id="38" parent="2" name="sqlite_autoindex_django_session_1"/>
+    <table id="39" parent="2" name="sqlite_autoindex_monitor_action_1"/>
+    <table id="40" parent="2" name="sqlite_autoindex_monitor_host_1"/>
+    <table id="41" parent="2" name="sqlite_autoindex_monitor_host_2"/>
+    <table id="42" parent="2" name="sqlite_autoindex_monitor_hostgroup_1"/>
+    <table id="43" parent="2" name="sqlite_autoindex_monitor_maintenance_1"/>
+    <table id="44" parent="2" name="sqlite_autoindex_monitor_service_1"/>
+    <table id="45" parent="2" name="sqlite_autoindex_monitor_template_1"/>
+    <table id="46" parent="2" name="sqlite_autoindex_monitor_userprofile_1"/>
+    <table id="47" parent="2" name="sqlite_sequence"/>
+    <column id="48" parent="3" name="id">
+      <Position>1</Position>
+      <DataType>INTEGER(0,-1)|4</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="49" parent="3" name="name">
+      <Position>2</Position>
+      <DataType>VARCHAR(80)(0,-1)|12</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <index id="50" parent="3" name="sqlite_autoindex_auth_group_1">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>name</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <key id="51" parent="3">
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="52" parent="4" name="id">
+      <Position>1</Position>
+      <DataType>INTEGER(0,-1)|4</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="53" parent="4" name="group_id">
+      <Position>2</Position>
+      <DataType>INTEGER(0,-1)|4</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="54" parent="4" name="permission_id">
+      <Position>3</Position>
+      <DataType>INTEGER(0,-1)|4</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <index id="55" parent="4" name="auth_group_permissions_group_id_0cd325b0_uniq">
+      <ColNames>group_id
+permission_id</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <key id="56" parent="4">
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="57" parent="4" name="#FAKE_auth_group_permissions_1">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>group_id</ColNames>
+      <Deferrable>1</Deferrable>
+      <InitiallyDeferred>1</InitiallyDeferred>
+      <RefTableName>auth_group</RefTableName>
+      <RefColNames>id</RefColNames>
+      <OnDelete>no-action</OnDelete>
+      <OnUpdate>no-action</OnUpdate>
+    </foreign-key>
+    <foreign-key id="58" parent="4" name="#FAKE_auth_group_permissions_2">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>permission_id</ColNames>
+      <Deferrable>1</Deferrable>
+      <InitiallyDeferred>1</InitiallyDeferred>
+      <RefTableName>auth_permission</RefTableName>
+      <RefColNames>id</RefColNames>
+      <OnDelete>no-action</OnDelete>
+      <OnUpdate>no-action</OnUpdate>
+    </foreign-key>
+    <column id="59" parent="5" name="id">
+      <Position>1</Position>
+      <DataType>INTEGER(0,-1)|4</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="60" parent="5" name="content_type_id">
+      <Position>2</Position>
+      <DataType>INTEGER(0,-1)|4</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="61" parent="5" name="codename">
+      <Position>3</Position>
+      <DataType>VARCHAR(100)(0,-1)|12</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="62" parent="5" name="name">
+      <Position>4</Position>
+      <DataType>VARCHAR(255)(0,-1)|12</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <index id="63" parent="5" name="auth_permission_content_type_id_01ab375a_uniq">
+      <ColNames>content_type_id
+codename</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <key id="64" parent="5">
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="65" parent="5" name="#FAKE_auth_permission_1">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>content_type_id</ColNames>
+      <Deferrable>1</Deferrable>
+      <InitiallyDeferred>1</InitiallyDeferred>
+      <RefTableName>django_content_type</RefTableName>
+      <RefColNames>id</RefColNames>
+      <OnDelete>no-action</OnDelete>
+      <OnUpdate>no-action</OnUpdate>
+    </foreign-key>
+    <column id="66" parent="6" name="id">
+      <Position>1</Position>
+      <DataType>INTEGER(0,-1)|4</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="67" parent="6" name="object_id">
+      <Position>2</Position>
+      <DataType>TEXT(0,-1)|12</DataType>
+    </column>
+    <column id="68" parent="6" name="object_repr">
+      <Position>3</Position>
+      <DataType>VARCHAR(200)(0,-1)|12</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="69" parent="6" name="action_flag">
+      <Position>4</Position>
+      <DataType>SMALLINT UNSIGNED(0,-1)|4</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="70" parent="6" name="change_message">
+      <Position>5</Position>
+      <DataType>TEXT(0,-1)|12</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="71" parent="6" name="content_type_id">
+      <Position>6</Position>
+      <DataType>INTEGER(0,-1)|4</DataType>
+    </column>
+    <column id="72" parent="6" name="user_id">
+      <Position>7</Position>
+      <DataType>INTEGER(0,-1)|4</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="73" parent="6" name="action_time">
+      <Position>8</Position>
+      <DataType>DATETIME(0,-1)|12</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <key id="74" parent="6">
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="75" parent="6" name="#FAKE_django_admin_log_1">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>content_type_id</ColNames>
+      <Deferrable>1</Deferrable>
+      <InitiallyDeferred>1</InitiallyDeferred>
+      <RefTableName>django_content_type</RefTableName>
+      <RefColNames>id</RefColNames>
+      <OnDelete>no-action</OnDelete>
+      <OnUpdate>no-action</OnUpdate>
+    </foreign-key>
+    <foreign-key id="76" parent="6" name="#FAKE_django_admin_log_2">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>user_id</ColNames>
+      <Deferrable>1</Deferrable>
+      <InitiallyDeferred>1</InitiallyDeferred>
+      <RefTableName>monitor_userprofile</RefTableName>
+      <RefColNames>id</RefColNames>
+      <OnDelete>no-action</OnDelete>
+      <OnUpdate>no-action</OnUpdate>
+    </foreign-key>
+    <column id="77" parent="7" name="id">
+      <Position>1</Position>
+      <DataType>INTEGER(0,-1)|4</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="78" parent="7" name="app_label">
+      <Position>2</Position>
+      <DataType>VARCHAR(100)(0,-1)|12</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="79" parent="7" name="model">
+      <Position>3</Position>
+      <DataType>VARCHAR(100)(0,-1)|12</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <index id="80" parent="7" name="django_content_type_app_label_76bd3d3b_uniq">
+      <ColNames>app_label
+model</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <key id="81" parent="7">
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="82" parent="8" name="id">
+      <Position>1</Position>
+      <DataType>INTEGER(0,-1)|4</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="83" parent="8" name="app">
+      <Position>2</Position>
+      <DataType>VARCHAR(255)(0,-1)|12</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="84" parent="8" name="name">
+      <Position>3</Position>
+      <DataType>VARCHAR(255)(0,-1)|12</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="85" parent="8" name="applied">
+      <Position>4</Position>
+      <DataType>DATETIME(0,-1)|12</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <key id="86" parent="8">
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="87" parent="9" name="session_key">
+      <Position>1</Position>
+      <DataType>VARCHAR(40)(0,-1)|12</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="88" parent="9" name="session_data">
+      <Position>2</Position>
+      <DataType>TEXT(0,-1)|12</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="89" parent="9" name="expire_date">
+      <Position>3</Position>
+      <DataType>DATETIME(0,-1)|12</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <index id="90" parent="9" name="django_session_de54fa62">
+      <ColNames>expire_date</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <key id="91" parent="9">
+      <ColNames>session_key</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="92" parent="10" name="id">
+      <Position>1</Position>
+      <DataType>INTEGER(0,-1)|4</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="93" parent="10" name="name">
+      <Position>2</Position>
+      <DataType>VARCHAR(64)(0,-1)|12</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="94" parent="10" name="interval">
+      <Position>3</Position>
+      <DataType>INTEGER(0,-1)|4</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="95" parent="10" name="recover_notice">
+      <Position>4</Position>
+      <DataType>BOOL(0,-1)|4</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="96" parent="10" name="recover_subject">
+      <Position>5</Position>
+      <DataType>VARCHAR(128)(0,-1)|12</DataType>
+    </column>
+    <column id="97" parent="10" name="recover_message">
+      <Position>6</Position>
+      <DataType>TEXT(0,-1)|12</DataType>
+    </column>
+    <column id="98" parent="10" name="enabled">
+      <Position>7</Position>
+      <DataType>BOOL(0,-1)|4</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <index id="99" parent="10" name="sqlite_autoindex_monitor_action_1">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>name</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <key id="100" parent="10">
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="101" parent="11" name="id">
+      <Position>1</Position>
+      <DataType>INTEGER(0,-1)|4</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="102" parent="11" name="action_id">
+      <Position>2</Position>
+      <DataType>INTEGER(0,-1)|4</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="103" parent="11" name="hostgroup_id">
+      <Position>3</Position>
+      <DataType>INTEGER(0,-1)|4</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <index id="104" parent="11" name="monitor_action_host_groups_action_id_297f3580_uniq">
+      <ColNames>action_id
+hostgroup_id</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <key id="105" parent="11">
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="106" parent="11" name="#FAKE_monitor_action_host_groups_1">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>action_id</ColNames>
+      <Deferrable>1</Deferrable>
+      <InitiallyDeferred>1</InitiallyDeferred>
+      <RefTableName>monitor_action</RefTableName>
+      <RefColNames>id</RefColNames>
+      <OnDelete>no-action</OnDelete>
+      <OnUpdate>no-action</OnUpdate>
+    </foreign-key>
+    <foreign-key id="107" parent="11" name="#FAKE_monitor_action_host_groups_2">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>hostgroup_id</ColNames>
+      <Deferrable>1</Deferrable>
+      <InitiallyDeferred>1</InitiallyDeferred>
+      <RefTableName>monitor_hostgroup</RefTableName>
+      <RefColNames>id</RefColNames>
+      <OnDelete>no-action</OnDelete>
+      <OnUpdate>no-action</OnUpdate>
+    </foreign-key>
+    <column id="108" parent="12" name="id">
+      <Position>1</Position>
+      <DataType>INTEGER(0,-1)|4</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="109" parent="12" name="action_id">
+      <Position>2</Position>
+      <DataType>INTEGER(0,-1)|4</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="110" parent="12" name="host_id">
+      <Position>3</Position>
+      <DataType>INTEGER(0,-1)|4</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <index id="111" parent="12" name="monitor_action_hosts_action_id_9da482d8_uniq">
+      <ColNames>action_id
+host_id</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <key id="112" parent="12">
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="113" parent="12" name="#FAKE_monitor_action_hosts_1">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>action_id</ColNames>
+      <Deferrable>1</Deferrable>
+      <InitiallyDeferred>1</InitiallyDeferred>
+      <RefTableName>monitor_action</RefTableName>
+      <RefColNames>id</RefColNames>
+      <OnDelete>no-action</OnDelete>
+      <OnUpdate>no-action</OnUpdate>
+    </foreign-key>
+    <foreign-key id="114" parent="12" name="#FAKE_monitor_action_hosts_2">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>host_id</ColNames>
+      <Deferrable>1</Deferrable>
+      <InitiallyDeferred>1</InitiallyDeferred>
+      <RefTableName>monitor_host</RefTableName>
+      <RefColNames>id</RefColNames>
+      <OnDelete>no-action</OnDelete>
+      <OnUpdate>no-action</OnUpdate>
+    </foreign-key>
+    <column id="115" parent="13" name="id">
+      <Position>1</Position>
+      <DataType>INTEGER(0,-1)|4</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="116" parent="13" name="action_id">
+      <Position>2</Position>
+      <DataType>INTEGER(0,-1)|4</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="117" parent="13" name="actionoperation_id">
+      <Position>3</Position>
+      <DataType>INTEGER(0,-1)|4</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <index id="118" parent="13" name="monitor_action_operations_action_id_e79454b5_uniq">
+      <ColNames>action_id
+actionoperation_id</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <key id="119" parent="13">
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="120" parent="13" name="#FAKE_monitor_action_operations_1">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>action_id</ColNames>
+      <Deferrable>1</Deferrable>
+      <InitiallyDeferred>1</InitiallyDeferred>
+      <RefTableName>monitor_action</RefTableName>
+      <RefColNames>id</RefColNames>
+      <OnDelete>no-action</OnDelete>
+      <OnUpdate>no-action</OnUpdate>
+    </foreign-key>
+    <foreign-key id="121" parent="13" name="#FAKE_monitor_action_operations_2">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>actionoperation_id</ColNames>
+      <Deferrable>1</Deferrable>
+      <InitiallyDeferred>1</InitiallyDeferred>
+      <RefTableName>monitor_actionoperation</RefTableName>
+      <RefColNames>id</RefColNames>
+      <OnDelete>no-action</OnDelete>
+      <OnUpdate>no-action</OnUpdate>
+    </foreign-key>
+    <column id="122" parent="14" name="id">
+      <Position>1</Position>
+      <DataType>INTEGER(0,-1)|4</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="123" parent="14" name="action_id">
+      <Position>2</Position>
+      <DataType>INTEGER(0,-1)|4</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="124" parent="14" name="trigger_id">
+      <Position>3</Position>
+      <DataType>INTEGER(0,-1)|4</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <index id="125" parent="14" name="monitor_action_triggers_action_id_a01bf799_uniq">
+      <ColNames>action_id
+trigger_id</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <key id="126" parent="14">
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="127" parent="14" name="#FAKE_monitor_action_triggers_1">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>action_id</ColNames>
+      <Deferrable>1</Deferrable>
+      <InitiallyDeferred>1</InitiallyDeferred>
+      <RefTableName>monitor_action</RefTableName>
+      <RefColNames>id</RefColNames>
+      <OnDelete>no-action</OnDelete>
+      <OnUpdate>no-action</OnUpdate>
+    </foreign-key>
+    <foreign-key id="128" parent="14" name="#FAKE_monitor_action_triggers_2">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>trigger_id</ColNames>
+      <Deferrable>1</Deferrable>
+      <InitiallyDeferred>1</InitiallyDeferred>
+      <RefTableName>monitor_trigger</RefTableName>
+      <RefColNames>id</RefColNames>
+      <OnDelete>no-action</OnDelete>
+      <OnUpdate>no-action</OnUpdate>
+    </foreign-key>
+    <column id="129" parent="15" name="id">
+      <Position>1</Position>
+      <DataType>INTEGER(0,-1)|4</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="130" parent="15" name="name">
+      <Position>2</Position>
+      <DataType>VARCHAR(64)(0,-1)|12</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="131" parent="15" name="action_type">
+      <Position>3</Position>
+      <DataType>VARCHAR(64)(0,-1)|12</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="132" parent="15" name="msg_format">
+      <Position>4</Position>
+      <DataType>TEXT(0,-1)|12</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="133" parent="15" name="step">
+      <Position>5</Position>
+      <DataType>SMALLINT(0,-1)|4</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <key id="134" parent="15">
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="135" parent="16" name="id">
+      <Position>1</Position>
+      <DataType>INTEGER(0,-1)|4</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="136" parent="16" name="actionoperation_id">
+      <Position>2</Position>
+      <DataType>INTEGER(0,-1)|4</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="137" parent="16" name="userprofile_id">
+      <Position>3</Position>
+      <DataType>INTEGER(0,-1)|4</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <index id="138" parent="16" name="monitor_actionoperation_notifiers_actionoperation_id_d40a48e6_uniq">
+      <ColNames>actionoperation_id
+userprofile_id</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <key id="139" parent="16">
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="140" parent="16" name="#FAKE_monitor_actionoperation_notifiers_1">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>actionoperation_id</ColNames>
+      <Deferrable>1</Deferrable>
+      <InitiallyDeferred>1</InitiallyDeferred>
+      <RefTableName>monitor_actionoperation</RefTableName>
+      <RefColNames>id</RefColNames>
+      <OnDelete>no-action</OnDelete>
+      <OnUpdate>no-action</OnUpdate>
+    </foreign-key>
+    <foreign-key id="141" parent="16" name="#FAKE_monitor_actionoperation_notifiers_2">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>userprofile_id</ColNames>
+      <Deferrable>1</Deferrable>
+      <InitiallyDeferred>1</InitiallyDeferred>
+      <RefTableName>monitor_userprofile</RefTableName>
+      <RefColNames>id</RefColNames>
+      <OnDelete>no-action</OnDelete>
+      <OnUpdate>no-action</OnUpdate>
+    </foreign-key>
+    <column id="142" parent="17" name="id">
+      <Position>1</Position>
+      <DataType>INTEGER(0,-1)|4</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="143" parent="17" name="event_type">
+      <Position>2</Position>
+      <DataType>SMALLINT(0,-1)|4</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="144" parent="17" name="log">
+      <Position>3</Position>
+      <DataType>TEXT(0,-1)|12</DataType>
+    </column>
+    <column id="145" parent="17" name="date">
+      <Position>4</Position>
+      <DataType>DATETIME(0,-1)|12</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="146" parent="17" name="host_id">
+      <Position>5</Position>
+      <DataType>INTEGER(0,-1)|4</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="147" parent="17" name="trigger_id">
+      <Position>6</Position>
+      <DataType>INTEGER(0,-1)|4</DataType>
+    </column>
+    <key id="148" parent="17">
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="149" parent="17" name="#FAKE_monitor_eventlog_1">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>host_id</ColNames>
+      <Deferrable>1</Deferrable>
+      <InitiallyDeferred>1</InitiallyDeferred>
+      <RefTableName>monitor_host</RefTableName>
+      <RefColNames>id</RefColNames>
+      <OnDelete>no-action</OnDelete>
+      <OnUpdate>no-action</OnUpdate>
+    </foreign-key>
+    <foreign-key id="150" parent="17" name="#FAKE_monitor_eventlog_2">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>trigger_id</ColNames>
+      <Deferrable>1</Deferrable>
+      <InitiallyDeferred>1</InitiallyDeferred>
+      <RefTableName>monitor_trigger</RefTableName>
+      <RefColNames>id</RefColNames>
+      <OnDelete>no-action</OnDelete>
+      <OnUpdate>no-action</OnUpdate>
+    </foreign-key>
+    <column id="151" parent="18" name="id">
+      <Position>1</Position>
+      <DataType>INTEGER(0,-1)|4</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="152" parent="18" name="name">
+      <Position>2</Position>
+      <DataType>VARCHAR(64)(0,-1)|12</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="153" parent="18" name="ip_addr">
+      <Position>3</Position>
+      <DataType>CHAR(39)(0,-1)|12</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="154" parent="18" name="monitored_by">
+      <Position>4</Position>
+      <DataType>VARCHAR(64)(0,-1)|12</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="155" parent="18" name="host_alive_check_interval">
+      <Position>5</Position>
+      <DataType>INTEGER(0,-1)|4</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="156" parent="18" name="status">
+      <Position>6</Position>
+      <DataType>INTEGER(0,-1)|4</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="157" parent="18" name="memo">
+      <Position>7</Position>
+      <DataType>TEXT(0,-1)|12</DataType>
+    </column>
+    <index id="158" parent="18" name="sqlite_autoindex_monitor_host_1">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>name</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <index id="159" parent="18" name="sqlite_autoindex_monitor_host_2">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>ip_addr</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <key id="160" parent="18">
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="161" parent="19" name="id">
+      <Position>1</Position>
+      <DataType>INTEGER(0,-1)|4</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="162" parent="19" name="host_id">
+      <Position>2</Position>
+      <DataType>INTEGER(0,-1)|4</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="163" parent="19" name="hostgroup_id">
+      <Position>3</Position>
+      <DataType>INTEGER(0,-1)|4</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <index id="164" parent="19" name="monitor_host_host_groups_host_id_72799c27_uniq">
+      <ColNames>host_id
+hostgroup_id</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <key id="165" parent="19">
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="166" parent="19" name="#FAKE_monitor_host_host_groups_1">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>host_id</ColNames>
+      <Deferrable>1</Deferrable>
+      <InitiallyDeferred>1</InitiallyDeferred>
+      <RefTableName>monitor_host</RefTableName>
+      <RefColNames>id</RefColNames>
+      <OnDelete>no-action</OnDelete>
+      <OnUpdate>no-action</OnUpdate>
+    </foreign-key>
+    <foreign-key id="167" parent="19" name="#FAKE_monitor_host_host_groups_2">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>hostgroup_id</ColNames>
+      <Deferrable>1</Deferrable>
+      <InitiallyDeferred>1</InitiallyDeferred>
+      <RefTableName>monitor_hostgroup</RefTableName>
+      <RefColNames>id</RefColNames>
+      <OnDelete>no-action</OnDelete>
+      <OnUpdate>no-action</OnUpdate>
+    </foreign-key>
+    <column id="168" parent="20" name="id">
+      <Position>1</Position>
+      <DataType>INTEGER(0,-1)|4</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="169" parent="20" name="host_id">
+      <Position>2</Position>
+      <DataType>INTEGER(0,-1)|4</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="170" parent="20" name="template_id">
+      <Position>3</Position>
+      <DataType>INTEGER(0,-1)|4</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <index id="171" parent="20" name="monitor_host_templates_host_id_5961a5aa_uniq">
+      <ColNames>host_id
+template_id</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <key id="172" parent="20">
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="173" parent="20" name="#FAKE_monitor_host_templates_1">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>host_id</ColNames>
+      <Deferrable>1</Deferrable>
+      <InitiallyDeferred>1</InitiallyDeferred>
+      <RefTableName>monitor_host</RefTableName>
+      <RefColNames>id</RefColNames>
+      <OnDelete>no-action</OnDelete>
+      <OnUpdate>no-action</OnUpdate>
+    </foreign-key>
+    <foreign-key id="174" parent="20" name="#FAKE_monitor_host_templates_2">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>template_id</ColNames>
+      <Deferrable>1</Deferrable>
+      <InitiallyDeferred>1</InitiallyDeferred>
+      <RefTableName>monitor_template</RefTableName>
+      <RefColNames>id</RefColNames>
+      <OnDelete>no-action</OnDelete>
+      <OnUpdate>no-action</OnUpdate>
+    </foreign-key>
+    <column id="175" parent="21" name="id">
+      <Position>1</Position>
+      <DataType>INTEGER(0,-1)|4</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="176" parent="21" name="name">
+      <Position>2</Position>
+      <DataType>VARCHAR(64)(0,-1)|12</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="177" parent="21" name="memo">
+      <Position>3</Position>
+      <DataType>TEXT(0,-1)|12</DataType>
+    </column>
+    <index id="178" parent="21" name="sqlite_autoindex_monitor_hostgroup_1">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>name</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <key id="179" parent="21">
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="180" parent="22" name="id">
+      <Position>1</Position>
+      <DataType>INTEGER(0,-1)|4</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="181" parent="22" name="hostgroup_id">
+      <Position>2</Position>
+      <DataType>INTEGER(0,-1)|4</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="182" parent="22" name="template_id">
+      <Position>3</Position>
+      <DataType>INTEGER(0,-1)|4</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <index id="183" parent="22" name="monitor_hostgroup_templates_hostgroup_id_a019873a_uniq">
+      <ColNames>hostgroup_id
+template_id</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <key id="184" parent="22">
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="185" parent="22" name="#FAKE_monitor_hostgroup_templates_1">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>hostgroup_id</ColNames>
+      <Deferrable>1</Deferrable>
+      <InitiallyDeferred>1</InitiallyDeferred>
+      <RefTableName>monitor_hostgroup</RefTableName>
+      <RefColNames>id</RefColNames>
+      <OnDelete>no-action</OnDelete>
+      <OnUpdate>no-action</OnUpdate>
+    </foreign-key>
+    <foreign-key id="186" parent="22" name="#FAKE_monitor_hostgroup_templates_2">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>template_id</ColNames>
+      <Deferrable>1</Deferrable>
+      <InitiallyDeferred>1</InitiallyDeferred>
+      <RefTableName>monitor_template</RefTableName>
+      <RefColNames>id</RefColNames>
+      <OnDelete>no-action</OnDelete>
+      <OnUpdate>no-action</OnUpdate>
+    </foreign-key>
+    <column id="187" parent="23" name="id">
+      <Position>1</Position>
+      <DataType>INTEGER(0,-1)|4</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="188" parent="23" name="name">
+      <Position>2</Position>
+      <DataType>VARCHAR(64)(0,-1)|12</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="189" parent="23" name="content">
+      <Position>3</Position>
+      <DataType>TEXT(0,-1)|12</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="190" parent="23" name="start_time">
+      <Position>4</Position>
+      <DataType>DATETIME(0,-1)|12</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="191" parent="23" name="end_time">
+      <Position>5</Position>
+      <DataType>DATETIME(0,-1)|12</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <index id="192" parent="23" name="sqlite_autoindex_monitor_maintenance_1">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>name</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <key id="193" parent="23">
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="194" parent="24" name="id">
+      <Position>1</Position>
+      <DataType>INTEGER(0,-1)|4</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="195" parent="24" name="maintenance_id">
+      <Position>2</Position>
+      <DataType>INTEGER(0,-1)|4</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="196" parent="24" name="hostgroup_id">
+      <Position>3</Position>
+      <DataType>INTEGER(0,-1)|4</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <index id="197" parent="24" name="monitor_maintenance_host_groups_maintenance_id_0eea7c1c_uniq">
+      <ColNames>maintenance_id
+hostgroup_id</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <key id="198" parent="24">
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="199" parent="24" name="#FAKE_monitor_maintenance_host_groups_2">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>maintenance_id</ColNames>
+      <Deferrable>1</Deferrable>
+      <InitiallyDeferred>1</InitiallyDeferred>
+      <RefTableName>monitor_maintenance</RefTableName>
+      <RefColNames>id</RefColNames>
+      <OnDelete>no-action</OnDelete>
+      <OnUpdate>no-action</OnUpdate>
+    </foreign-key>
+    <foreign-key id="200" parent="24" name="#FAKE_monitor_maintenance_host_groups_1">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>hostgroup_id</ColNames>
+      <Deferrable>1</Deferrable>
+      <InitiallyDeferred>1</InitiallyDeferred>
+      <RefTableName>monitor_hostgroup</RefTableName>
+      <RefColNames>id</RefColNames>
+      <OnDelete>no-action</OnDelete>
+      <OnUpdate>no-action</OnUpdate>
+    </foreign-key>
+    <column id="201" parent="25" name="id">
+      <Position>1</Position>
+      <DataType>INTEGER(0,-1)|4</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="202" parent="25" name="maintenance_id">
+      <Position>2</Position>
+      <DataType>INTEGER(0,-1)|4</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="203" parent="25" name="host_id">
+      <Position>3</Position>
+      <DataType>INTEGER(0,-1)|4</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <index id="204" parent="25" name="monitor_maintenance_hosts_maintenance_id_d32c4a46_uniq">
+      <ColNames>maintenance_id
+host_id</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <key id="205" parent="25">
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="206" parent="25" name="#FAKE_monitor_maintenance_hosts_2">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>maintenance_id</ColNames>
+      <Deferrable>1</Deferrable>
+      <InitiallyDeferred>1</InitiallyDeferred>
+      <RefTableName>monitor_maintenance</RefTableName>
+      <RefColNames>id</RefColNames>
+      <OnDelete>no-action</OnDelete>
+      <OnUpdate>no-action</OnUpdate>
+    </foreign-key>
+    <foreign-key id="207" parent="25" name="#FAKE_monitor_maintenance_hosts_1">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>host_id</ColNames>
+      <Deferrable>1</Deferrable>
+      <InitiallyDeferred>1</InitiallyDeferred>
+      <RefTableName>monitor_host</RefTableName>
+      <RefColNames>id</RefColNames>
+      <OnDelete>no-action</OnDelete>
+      <OnUpdate>no-action</OnUpdate>
+    </foreign-key>
+    <column id="208" parent="26" name="id">
+      <Position>1</Position>
+      <DataType>INTEGER(0,-1)|4</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="209" parent="26" name="name">
+      <Position>2</Position>
+      <DataType>VARCHAR(64)(0,-1)|12</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="210" parent="26" name="interval">
+      <Position>3</Position>
+      <DataType>INTEGER(0,-1)|4</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="211" parent="26" name="plugin_name">
+      <Position>4</Position>
+      <DataType>VARCHAR(64)(0,-1)|12</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="212" parent="26" name="has_sub_service">
+      <Position>5</Position>
+      <DataType>BOOL(0,-1)|4</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="213" parent="26" name="memo">
+      <Position>6</Position>
+      <DataType>VARCHAR(128)(0,-1)|12</DataType>
+    </column>
+    <index id="214" parent="26" name="sqlite_autoindex_monitor_service_1">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>name</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <key id="215" parent="26">
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="216" parent="27" name="id">
+      <Position>1</Position>
+      <DataType>INTEGER(0,-1)|4</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="217" parent="27" name="service_id">
+      <Position>2</Position>
+      <DataType>INTEGER(0,-1)|4</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="218" parent="27" name="serviceindex_id">
+      <Position>3</Position>
+      <DataType>INTEGER(0,-1)|4</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <index id="219" parent="27" name="monitor_service_items_service_id_6d5fc5a7_uniq">
+      <ColNames>service_id
+serviceindex_id</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <key id="220" parent="27">
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="221" parent="27" name="#FAKE_monitor_service_items_1">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>service_id</ColNames>
+      <Deferrable>1</Deferrable>
+      <InitiallyDeferred>1</InitiallyDeferred>
+      <RefTableName>monitor_service</RefTableName>
+      <RefColNames>id</RefColNames>
+      <OnDelete>no-action</OnDelete>
+      <OnUpdate>no-action</OnUpdate>
+    </foreign-key>
+    <foreign-key id="222" parent="27" name="#FAKE_monitor_service_items_2">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>serviceindex_id</ColNames>
+      <Deferrable>1</Deferrable>
+      <InitiallyDeferred>1</InitiallyDeferred>
+      <RefTableName>monitor_serviceindex</RefTableName>
+      <RefColNames>id</RefColNames>
+      <OnDelete>no-action</OnDelete>
+      <OnUpdate>no-action</OnUpdate>
+    </foreign-key>
+    <column id="223" parent="28" name="id">
+      <Position>1</Position>
+      <DataType>INTEGER(0,-1)|4</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="224" parent="28" name="name">
+      <Position>2</Position>
+      <DataType>VARCHAR(64)(0,-1)|12</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="225" parent="28" name="key">
+      <Position>3</Position>
+      <DataType>VARCHAR(64)(0,-1)|12</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="226" parent="28" name="data_type">
+      <Position>4</Position>
+      <DataType>VARCHAR(32)(0,-1)|12</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="227" parent="28" name="memo">
+      <Position>5</Position>
+      <DataType>VARCHAR(128)(0,-1)|12</DataType>
+    </column>
+    <key id="228" parent="28">
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="229" parent="29" name="id">
+      <Position>1</Position>
+      <DataType>INTEGER(0,-1)|4</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="230" parent="29" name="name">
+      <Position>2</Position>
+      <DataType>VARCHAR(64)(0,-1)|12</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <index id="231" parent="29" name="sqlite_autoindex_monitor_template_1">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>name</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <key id="232" parent="29">
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="233" parent="30" name="id">
+      <Position>1</Position>
+      <DataType>INTEGER(0,-1)|4</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="234" parent="30" name="template_id">
+      <Position>2</Position>
+      <DataType>INTEGER(0,-1)|4</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="235" parent="30" name="service_id">
+      <Position>3</Position>
+      <DataType>INTEGER(0,-1)|4</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <index id="236" parent="30" name="monitor_template_services_template_id_d137cd87_uniq">
+      <ColNames>template_id
+service_id</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <key id="237" parent="30">
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="238" parent="30" name="#FAKE_monitor_template_services_2">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>template_id</ColNames>
+      <Deferrable>1</Deferrable>
+      <InitiallyDeferred>1</InitiallyDeferred>
+      <RefTableName>monitor_template</RefTableName>
+      <RefColNames>id</RefColNames>
+      <OnDelete>no-action</OnDelete>
+      <OnUpdate>no-action</OnUpdate>
+    </foreign-key>
+    <foreign-key id="239" parent="30" name="#FAKE_monitor_template_services_1">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>service_id</ColNames>
+      <Deferrable>1</Deferrable>
+      <InitiallyDeferred>1</InitiallyDeferred>
+      <RefTableName>monitor_service</RefTableName>
+      <RefColNames>id</RefColNames>
+      <OnDelete>no-action</OnDelete>
+      <OnUpdate>no-action</OnUpdate>
+    </foreign-key>
+    <column id="240" parent="31" name="id">
+      <Position>1</Position>
+      <DataType>INTEGER(0,-1)|4</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="241" parent="31" name="template_id">
+      <Position>2</Position>
+      <DataType>INTEGER(0,-1)|4</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="242" parent="31" name="trigger_id">
+      <Position>3</Position>
+      <DataType>INTEGER(0,-1)|4</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <index id="243" parent="31" name="monitor_template_triggers_template_id_ebdc79c4_uniq">
+      <ColNames>template_id
+trigger_id</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <key id="244" parent="31">
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="245" parent="31" name="#FAKE_monitor_template_triggers_1">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>template_id</ColNames>
+      <Deferrable>1</Deferrable>
+      <InitiallyDeferred>1</InitiallyDeferred>
+      <RefTableName>monitor_template</RefTableName>
+      <RefColNames>id</RefColNames>
+      <OnDelete>no-action</OnDelete>
+      <OnUpdate>no-action</OnUpdate>
+    </foreign-key>
+    <foreign-key id="246" parent="31" name="#FAKE_monitor_template_triggers_2">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>trigger_id</ColNames>
+      <Deferrable>1</Deferrable>
+      <InitiallyDeferred>1</InitiallyDeferred>
+      <RefTableName>monitor_trigger</RefTableName>
+      <RefColNames>id</RefColNames>
+      <OnDelete>no-action</OnDelete>
+      <OnUpdate>no-action</OnUpdate>
+    </foreign-key>
+    <column id="247" parent="32" name="id">
+      <Position>1</Position>
+      <DataType>INTEGER(0,-1)|4</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="248" parent="32" name="name">
+      <Position>2</Position>
+      <DataType>VARCHAR(64)(0,-1)|12</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="249" parent="32" name="severity">
+      <Position>3</Position>
+      <DataType>INTEGER(0,-1)|4</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="250" parent="32" name="enabled">
+      <Position>4</Position>
+      <DataType>BOOL(0,-1)|4</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="251" parent="32" name="memo">
+      <Position>5</Position>
+      <DataType>TEXT(0,-1)|12</DataType>
+    </column>
+    <key id="252" parent="32">
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="253" parent="33" name="id">
+      <Position>1</Position>
+      <DataType>INTEGER(0,-1)|4</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="254" parent="33" name="specified_index_key">
+      <Position>2</Position>
+      <DataType>VARCHAR(64)(0,-1)|12</DataType>
+    </column>
+    <column id="255" parent="33" name="operator_type">
+      <Position>3</Position>
+      <DataType>VARCHAR(32)(0,-1)|12</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="256" parent="33" name="data_calc_func">
+      <Position>4</Position>
+      <DataType>VARCHAR(64)(0,-1)|12</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="257" parent="33" name="data_calc_args">
+      <Position>5</Position>
+      <DataType>VARCHAR(64)(0,-1)|12</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="258" parent="33" name="threshold">
+      <Position>6</Position>
+      <DataType>INTEGER(0,-1)|4</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="259" parent="33" name="logic_type">
+      <Position>7</Position>
+      <DataType>VARCHAR(32)(0,-1)|12</DataType>
+    </column>
+    <column id="260" parent="33" name="service_id">
+      <Position>8</Position>
+      <DataType>INTEGER(0,-1)|4</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="261" parent="33" name="service_index_id">
+      <Position>9</Position>
+      <DataType>INTEGER(0,-1)|4</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="262" parent="33" name="trigger_id">
+      <Position>10</Position>
+      <DataType>INTEGER(0,-1)|4</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <key id="263" parent="33">
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="264" parent="33" name="#FAKE_monitor_triggerexpression_1">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>service_id</ColNames>
+      <Deferrable>1</Deferrable>
+      <InitiallyDeferred>1</InitiallyDeferred>
+      <RefTableName>monitor_service</RefTableName>
+      <RefColNames>id</RefColNames>
+      <OnDelete>no-action</OnDelete>
+      <OnUpdate>no-action</OnUpdate>
+    </foreign-key>
+    <foreign-key id="265" parent="33" name="#FAKE_monitor_triggerexpression_2">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>service_index_id</ColNames>
+      <Deferrable>1</Deferrable>
+      <InitiallyDeferred>1</InitiallyDeferred>
+      <RefTableName>monitor_serviceindex</RefTableName>
+      <RefColNames>id</RefColNames>
+      <OnDelete>no-action</OnDelete>
+      <OnUpdate>no-action</OnUpdate>
+    </foreign-key>
+    <foreign-key id="266" parent="33" name="#FAKE_monitor_triggerexpression_3">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>trigger_id</ColNames>
+      <Deferrable>1</Deferrable>
+      <InitiallyDeferred>1</InitiallyDeferred>
+      <RefTableName>monitor_trigger</RefTableName>
+      <RefColNames>id</RefColNames>
+      <OnDelete>no-action</OnDelete>
+      <OnUpdate>no-action</OnUpdate>
+    </foreign-key>
+    <column id="267" parent="34" name="id">
+      <Position>1</Position>
+      <DataType>INTEGER(0,-1)|4</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="268" parent="34" name="last_login">
+      <Position>2</Position>
+      <DataType>DATETIME(0,-1)|12</DataType>
+    </column>
+    <column id="269" parent="34" name="email">
+      <Position>3</Position>
+      <DataType>VARCHAR(255)(0,-1)|12</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="270" parent="34" name="password">
+      <Position>4</Position>
+      <DataType>VARCHAR(128)(0,-1)|12</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="271" parent="34" name="phone">
+      <Position>5</Position>
+      <DataType>BIGINT(0,-1)|4</DataType>
+    </column>
+    <column id="272" parent="34" name="weixin">
+      <Position>6</Position>
+      <DataType>VARCHAR(64)(0,-1)|12</DataType>
+    </column>
+    <column id="273" parent="34" name="is_active">
+      <Position>7</Position>
+      <DataType>BOOL(0,-1)|4</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="274" parent="34" name="is_admin">
+      <Position>8</Position>
+      <DataType>BOOL(0,-1)|4</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="275" parent="34" name="is_staff">
+      <Position>9</Position>
+      <DataType>BOOL(0,-1)|4</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="276" parent="34" name="name">
+      <Position>10</Position>
+      <DataType>VARCHAR(32)(0,-1)|12</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="277" parent="34" name="memo">
+      <Position>11</Position>
+      <DataType>TEXT(0,-1)|12</DataType>
+    </column>
+    <column id="278" parent="34" name="date_joined">
+      <Position>12</Position>
+      <DataType>DATETIME(0,-1)|12</DataType>
+    </column>
+    <index id="279" parent="34" name="sqlite_autoindex_monitor_userprofile_1">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>email</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <key id="280" parent="34">
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="281" parent="35" name="id">
+      <Position>1</Position>
+      <DataType>INTEGER(0,-1)|4</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="282" parent="35" name="userprofile_id">
+      <Position>2</Position>
+      <DataType>INTEGER(0,-1)|4</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="283" parent="35" name="group_id">
+      <Position>3</Position>
+      <DataType>INTEGER(0,-1)|4</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <index id="284" parent="35" name="monitor_userprofile_groups_userprofile_id_b30b9df2_uniq">
+      <ColNames>userprofile_id
+group_id</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <key id="285" parent="35">
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="286" parent="35" name="#FAKE_monitor_userprofile_groups_2">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>userprofile_id</ColNames>
+      <Deferrable>1</Deferrable>
+      <InitiallyDeferred>1</InitiallyDeferred>
+      <RefTableName>monitor_userprofile</RefTableName>
+      <RefColNames>id</RefColNames>
+      <OnDelete>no-action</OnDelete>
+      <OnUpdate>no-action</OnUpdate>
+    </foreign-key>
+    <foreign-key id="287" parent="35" name="#FAKE_monitor_userprofile_groups_1">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>group_id</ColNames>
+      <Deferrable>1</Deferrable>
+      <InitiallyDeferred>1</InitiallyDeferred>
+      <RefTableName>auth_group</RefTableName>
+      <RefColNames>id</RefColNames>
+      <OnDelete>no-action</OnDelete>
+      <OnUpdate>no-action</OnUpdate>
+    </foreign-key>
+    <column id="288" parent="36" name="id">
+      <Position>1</Position>
+      <DataType>INTEGER(0,-1)|4</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="289" parent="36" name="userprofile_id">
+      <Position>2</Position>
+      <DataType>INTEGER(0,-1)|4</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="290" parent="36" name="permission_id">
+      <Position>3</Position>
+      <DataType>INTEGER(0,-1)|4</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <index id="291" parent="36" name="monitor_userprofile_user_permissions_userprofile_id_58716812_uniq">
+      <ColNames>userprofile_id
+permission_id</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <key id="292" parent="36">
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="293" parent="36" name="#FAKE_monitor_userprofile_user_permissions_2">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>userprofile_id</ColNames>
+      <Deferrable>1</Deferrable>
+      <InitiallyDeferred>1</InitiallyDeferred>
+      <RefTableName>monitor_userprofile</RefTableName>
+      <RefColNames>id</RefColNames>
+      <OnDelete>no-action</OnDelete>
+      <OnUpdate>no-action</OnUpdate>
+    </foreign-key>
+    <foreign-key id="294" parent="36" name="#FAKE_monitor_userprofile_user_permissions_1">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>permission_id</ColNames>
+      <Deferrable>1</Deferrable>
+      <InitiallyDeferred>1</InitiallyDeferred>
+      <RefTableName>auth_permission</RefTableName>
+      <RefColNames>id</RefColNames>
+      <OnDelete>no-action</OnDelete>
+      <OnUpdate>no-action</OnUpdate>
+    </foreign-key>
+  </database-model>
+</dataSource>
